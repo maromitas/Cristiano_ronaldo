@@ -1,0 +1,123 @@
+/* Reset CSS */
+* {
+  min-width: 0;
+  font: inherit;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+img,
+video,
+svg {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+/* Estilos generales */
+body {
+  background-color: palegoldenrod;
+  height: 100vh;
+
+  & main {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      & h1 {
+          font-size: 2.5rem;
+          text-align: center;
+          font-weight: 700;
+      }
+
+      & .options {
+          font-size: 1.5rem;
+          font-weight: 600;
+
+          & button {
+              padding: .5rem 1.5rem;
+              border: 2px solid rgba(0, 0, 0, .9);
+              border-radius: 5px;
+              cursor: pointer;
+              box-shadow: 1px 1px 1px rgba(0, 0, 0, .2);
+          }
+
+          & button:hover {
+              box-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+          }
+
+          & button#yes {
+              background-color: #97cfaa;
+              margin-right: 2rem;
+          }
+
+          & button#no {
+              background-color: #f36c46;
+          }
+      }
+  }
+}
+
+/* Mensaje después de presionar "Sí" */
+#message {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: palegoldenrod;
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+/* 🎀 Carta fija en pantalla, pero más abajo */
+#letter {
+  position: fixed;
+  top: 65%; /* Ajustamos la posición para que no cubra el mensaje */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: none; /* Oculta la carta por defecto */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000; /* Se mantiene encima */
+}
+
+/* Contenido de la carta */
+.letter-content {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 400px; /* Ancho aumentado */
+  max-width: 90%; /* Para que se adapte a pantallas pequeñas */
+  text-align: center;
+  animation: fadeIn 1s ease-in-out;
+  border: 3px solid white;
+  box-shadow: 0 0 10px white, 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translate(-50%, -50%) scale(0.8);
+  }
+  to {
+      opacity: 1;
+      transform: translate(-50%, -50%) scale(1);
+  }
+}
+
